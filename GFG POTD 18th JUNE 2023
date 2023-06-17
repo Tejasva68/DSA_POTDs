@@ -1,0 +1,35 @@
+suppose  1 2 3 4 5 6are there so remove 1 first ans maitain a pointer pointing at the back same when deleting  6 5 4 the last one to be deleted will be the front one 
+
+so we can say that when deleteing from front the last elelments will be the element to be  deleted similarly when delrting from back the fisrt one will the last element
+ to be deleted;
+ 
+ 
+ 
+ 
+class Solution {
+  public:
+    int distributeTicket(int N, int K) {
+        // code here
+        deque<int>q;int curr_num;int a=0,b=0;
+        for(int i=1;i<=N;i++){
+            q.push_back(i);
+        }
+        while(!q.empty()){
+            if(a!=K){
+                q.pop_front();
+                a++;
+                curr_num=q.back();
+            }
+            else{
+                q.pop_back();
+                b++;
+                if(b==K){
+                    a=0,b=0;
+                }
+                curr_num=q.front();
+            }
+        }
+        return curr_num;
+        
+    }
+};
