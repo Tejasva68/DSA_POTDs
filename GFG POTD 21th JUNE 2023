@@ -1,0 +1,21 @@
+Sum of n natural numbers 
+sum=n*(n+1)/2
+
+MODULAR ARITHMETHIC
+(a + b) mod m = ((a mod m) + (b mod m)) mod m;
+(a+b)%m = a%m +b%m;
+(a*b)%mod = (a%mod*b%mod)%mod;
+
+
+class Solution {
+  public:
+    long long sumOfNaturals(int n) {
+        // code here
+        int mod=1000000007;
+        return (long long)(((long long)n%mod*((long long)n+1)%mod)%mod)/2;
+        
+    }
+};
+
+
+
