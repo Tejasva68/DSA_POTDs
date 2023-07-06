@@ -1,0 +1,30 @@
+class Solution
+{
+    public:
+    //Function to sort an array using quick sort algorithm.
+    void quickSort(int arr[], int low, int high)
+    {
+        // code here
+        if(low<high){
+            int pi=partition(arr,low,high);
+            quickSort(arr,low,pi-1);
+            quickSort(arr,pi+1,high);
+        }
+    }
+    
+    public:
+    int partition (int arr[], int low, int high)
+    {
+       // Your code here
+       int k=arr[high];
+       int pos=(low-1);
+       for(int i=low;i<=high-1;i++){
+           if(arr[i]<k){
+               pos++;
+               swap(arr[pos],arr[i]);
+           }
+       }
+       swap(arr[pos+1],arr[high]);
+       return pos+1;
+    }
+};
