@@ -1,0 +1,21 @@
+class Solution{
+    public:
+        //Function to merge the arrays.
+        void merge(long long arr1[], long long arr2[], int n, int m) 
+        { 
+            // code here 
+            int low=n-1;
+            int high=0;
+            while(high<m && low>=0){
+                if(arr1[low]>arr2[high]){
+                    swap(arr1[low],arr2[high]);
+                }
+                else{
+                    break;
+                }
+                low--,high++;
+            }
+            sort(arr1,arr1+n);
+            sort(arr2,arr2+m);
+        } 
+};
