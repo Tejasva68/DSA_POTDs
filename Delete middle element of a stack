@@ -1,0 +1,22 @@
+class Solution
+{
+    public:
+    //Function to delete middle element of a stack.
+    void helper(stack<int>&s,int n, int idx){
+            if(idx==n/2){
+                s.pop();
+                return;
+            }
+            int x=s.top();
+            s.pop();
+            idx++;
+            helper(s,n,idx);
+            s.push(x);
+        }
+    void deleteMid(stack<int>&s, int n)
+    {
+        // code here.. 
+        helper(s,n,0);
+    }
+
+};
