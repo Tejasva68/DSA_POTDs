@@ -1,0 +1,31 @@
+x & ~(x-1); for finding right most set bit in a number
+
+
+class Solution
+{
+public:
+    vector<int> singleNumber(vector<int> nums) 
+    {
+        // Code here.
+        int x = 0;
+        for(auto it:nums)
+        {
+            x ^= it;
+        }
+        int set1 = 0,set2 = 0;
+        int bit = x & ~(x-1);
+        for(auto it:nums)
+        {
+            if(bit & it) set1 ^= it;
+            else set2 ^= it;
+        }
+        if(set1 < set2) return {set1,set2};
+        return {set2,set1};
+       
+       
+        
+        
+        
+        
+    }
+};
